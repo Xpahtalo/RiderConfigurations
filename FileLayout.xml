@@ -1,122 +1,122 @@
 <Patterns xmlns="urn:schemas-jetbrains-com:member-reordering-patterns">
-	<TypePattern DisplayName="Non-reorderable types" Priority="99999999">
-		<TypePattern.Match>
-			<Or>
-				<And>
-					<Kind Is="Interface"/>
-					<Or>
-						<HasAttribute Name="System.Runtime.InteropServices.InterfaceTypeAttribute"/>
-						<HasAttribute Name="System.Runtime.InteropServices.ComImport"/>
-					</Or>
-				</And>
-				<Kind Is="Struct"/>
-				<HasAttribute Name="System.Runtime.InteropServices.StructLayoutAttribute"/>
-				<HasAttribute Name="JetBrains.Annotations.NoReorderAttribute"/>
-			</Or>
-		</TypePattern.Match>
-	</TypePattern>
+  <TypePattern DisplayName="Non-reorderable types" Priority="99999999">
+    <TypePattern.Match>
+      <Or>
+        <And>
+          <Kind Is="Interface"/>
+          <Or>
+            <HasAttribute Name="System.Runtime.InteropServices.InterfaceTypeAttribute"/>
+            <HasAttribute Name="System.Runtime.InteropServices.ComImport"/>
+          </Or>
+        </And>
+        <Kind Is="Struct"/>
+        <HasAttribute Name="System.Runtime.InteropServices.StructLayoutAttribute"/>
+        <HasAttribute Name="JetBrains.Annotations.NoReorderAttribute"/>
+      </Or>
+    </TypePattern.Match>
+  </TypePattern>
 
-	<TypePattern DisplayName="Default Pattern">
-		<Entry DisplayName="Public Delegates" Priority="100">
-			<Entry.Match>
-				<And>
-					<Access Is="Public"/>
-					<Kind Is="Delegate"/>
-				</And>
-			</Entry.Match>
+  <TypePattern DisplayName="Default Pattern">
+    <Entry DisplayName="Public Delegates" Priority="100">
+      <Entry.Match>
+        <And>
+          <Access Is="Public"/>
+          <Kind Is="Delegate"/>
+        </And>
+      </Entry.Match>
 
-			<Entry.SortBy>
-				<Name/>
-			</Entry.SortBy>
-		</Entry>
+      <Entry.SortBy>
+        <Name/>
+      </Entry.SortBy>
+    </Entry>
 
-		<Entry DisplayName="Public Enums" Priority="100">
-			<Entry.Match>
-				<And>
-					<Access Is="Public"/>
-					<Kind Is="Enum"/>
-				</And>
-			</Entry.Match>
+    <Entry DisplayName="Public Enums" Priority="100">
+      <Entry.Match>
+        <And>
+          <Access Is="Public"/>
+          <Kind Is="Enum"/>
+        </And>
+      </Entry.Match>
 
-			<Entry.SortBy>
-				<Name/>
-			</Entry.SortBy>
-		</Entry>
+      <Entry.SortBy>
+        <Name/>
+      </Entry.SortBy>
+    </Entry>
 
-		<Entry DisplayName="Static Fields and Constants">
-			<Entry.Match>
-				<Or>
-					<Kind Is="Constant"/>
-					<And>
-						<Kind Is="Field"/>
-						<Static/>
-					</And>
-				</Or>
-			</Entry.Match>
+    <Entry DisplayName="Static Fields and Constants">
+      <Entry.Match>
+        <Or>
+          <Kind Is="Constant"/>
+          <And>
+            <Kind Is="Field"/>
+            <Static/>
+          </And>
+        </Or>
+      </Entry.Match>
 
-			<Entry.SortBy>
-				<Kind>
-					<Kind.Order>
-						<DeclarationKind>Constant</DeclarationKind>
-						<DeclarationKind>Field</DeclarationKind>
-					</Kind.Order>
-				</Kind>
-			</Entry.SortBy>
-		</Entry>
+      <Entry.SortBy>
+        <Kind>
+          <Kind.Order>
+            <DeclarationKind>Constant</DeclarationKind>
+            <DeclarationKind>Field</DeclarationKind>
+          </Kind.Order>
+        </Kind>
+      </Entry.SortBy>
+    </Entry>
 
-		<Entry DisplayName="Fields">
-			<Entry.Match>
-				<And>
-					<Kind Is="Field"/>
-					<Not>
-						<Static/>
-					</Not>
-				</And>
-			</Entry.Match>
+    <Entry DisplayName="Fields">
+      <Entry.Match>
+        <And>
+          <Kind Is="Field"/>
+          <Not>
+            <Static/>
+          </Not>
+        </And>
+      </Entry.Match>
 
-			<Entry.SortBy>
-				<Access Order="public protected internal private"/>
-			</Entry.SortBy>
-		</Entry>
+      <Entry.SortBy>
+        <Access Order="public protected internal private"/>
+      </Entry.SortBy>
+    </Entry>
 
-		<Entry DisplayName="Properties, Indexers">
-			<Entry.Match>
-				<Or>
-					<Kind Is="Property"/>
-					<Kind Is="Indexer"/>
-				</Or>
-			</Entry.Match>
-		</Entry>
+    <Entry DisplayName="Properties, Indexers">
+      <Entry.Match>
+        <Or>
+          <Kind Is="Property"/>
+          <Kind Is="Indexer"/>
+        </Or>
+      </Entry.Match>
+    </Entry>
 
-		<Entry DisplayName="Constructors">
-			<Entry.Match>
-				<Kind Is="Constructor"/>
-			</Entry.Match>
+    <Entry DisplayName="Constructors">
+      <Entry.Match>
+        <Kind Is="Constructor"/>
+      </Entry.Match>
 
-			<Entry.SortBy>
-				<Static/>
-			</Entry.SortBy>
-		</Entry>
+      <Entry.SortBy>
+        <Static/>
+      </Entry.SortBy>
+    </Entry>
 
-		<Entry DisplayName="Interface Implementations"Priority="100">
-			<Entry.Match>
-				<And>
-					<Kind Is="Member"/>
-					<ImplementsInterface/>
-				</And>
-			</Entry.Match>
+    <Entry DisplayName="Interface Implementations" Priority="100">
+      <Entry.Match>
+        <And>
+          <Kind Is="Member"/>
+          <ImplementsInterface/>
+        </And>
+      </Entry.Match>
 
-			<Entry.SortBy>
-				<ImplementsInterface Immediate="true"/>
-			</Entry.SortBy>
-		</Entry>
+      <Entry.SortBy>
+        <ImplementsInterface Immediate="true"/>
+      </Entry.SortBy>
+    </Entry>
 
-		<Entry DisplayName="All other members"/>
+    <Entry DisplayName="All other members"/>
 
-		<Entry DisplayName="Nested Types">
-			<Entry.Match>
-				<Kind Is="Type"/>
-			</Entry.Match>
-		</Entry>
-	</TypePattern>
+    <Entry DisplayName="Nested Types">
+      <Entry.Match>
+        <Kind Is="Type"/>
+      </Entry.Match>
+    </Entry>
+  </TypePattern>
 </Patterns>
